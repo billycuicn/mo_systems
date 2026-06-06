@@ -1,0 +1,175 @@
+:root {
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --text: #172026;
+  --muted: #64717d;
+  --line: #d7dee7;
+  --up: #d94b4b;
+  --down: #1f9a6b;
+  --candidate: #de8c2f;
+  --confirmed: #276ef1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(760px, 1fr) 340px;
+  min-height: 100vh;
+}
+
+.workspace {
+  padding: 18px;
+}
+
+.toolbar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 15px;
+  margin: 18px 0 10px;
+}
+
+#statusText {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+button {
+  background: #25313d;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  height: 34px;
+  padding: 0 12px;
+}
+
+button.secondary {
+  background: #edf1f5;
+  color: var(--text);
+}
+
+button.danger {
+  background: #b83232;
+}
+
+canvas {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  display: block;
+  height: calc(100vh - 100px);
+  width: 100%;
+}
+
+.side-panel {
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  overflow: auto;
+  padding: 18px;
+}
+
+.selected-empty,
+.empty {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.pen-card,
+.summary-card {
+  border: 1px solid var(--line);
+  margin-bottom: 8px;
+  padding: 10px;
+}
+
+.pen-card {
+  cursor: pointer;
+}
+
+.pen-card.active {
+  border-color: var(--confirmed);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  margin-bottom: 6px;
+  padding: 2px 6px;
+}
+
+.tag.candidate {
+  background: #fff1df;
+  color: #9a560b;
+}
+
+.tag.confirmed {
+  background: #e8f0ff;
+  color: #1647a4;
+}
+
+.manual-grid,
+.edit-grid {
+  display: grid;
+  gap: 8px;
+}
+
+input {
+  border: 1px solid var(--line);
+  font-size: 13px;
+  height: 34px;
+  padding: 0 9px;
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .side-panel {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  canvas {
+    height: 520px;
+  }
+}
+

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中证1000缠论分析系统</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="workspace">
+      <header class="toolbar">
+        <div>
+          <h1>中证1000 30分钟缠论分析</h1>
+          <p id="statusText">等待加载数据</p>
+        </div>
+        <div class="actions">
+          <button id="fetchBtn">拉取K线</button>
+          <button id="candidateBtn">生成候选笔</button>
+          <button id="confirmAllBtn">确认全部候选笔</button>
+          <button id="undoBtn">撤销</button>
+        </div>
+      </header>
+      <canvas id="chart" width="1100" height="620"></canvas>
+    </section>
+    <aside class="side-panel">
+      <h2>笔确认</h2>
+      <div id="selectedPen" class="selected-empty">点击图上的笔进行确认、删除或调整。</div>
+      <h2>新增手工笔</h2>
+      <div class="manual-grid">
+        <input id="startDt" placeholder="起点时间">
+        <input id="startPrice" placeholder="起点价格" type="number" step="0.01">
+        <input id="endDt" placeholder="终点时间">
+        <input id="endPrice" placeholder="终点价格" type="number" step="0.01">
+        <button id="manualBtn">新增确认笔</button>
+      </div>
+      <h2>信号摘要</h2>
+      <div id="summary"></div>
+      <h2>全部笔</h2>
+      <div id="penList" class="pen-list"></div>
+    </aside>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
+

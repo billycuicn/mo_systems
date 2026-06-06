@@ -1,0 +1,2 @@
+"""Chan trading MVP application."""
+
